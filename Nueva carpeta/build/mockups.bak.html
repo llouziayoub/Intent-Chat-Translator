@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Intent UI visuals</title>
+<style>
+@font-face{font-family:'Cairo';src:url('fonts/Cairo-VF.ttf') format('truetype');font-weight:200 1000;font-display:block}
+@font-face{font-family:'Tajawal';src:url('fonts/Tajawal-Regular.ttf');font-weight:400}
+@font-face{font-family:'Tajawal';src:url('fonts/Tajawal-Bold.ttf');font-weight:700}
+
+:root{
+  --navy:#0F172A; --ink:#0B1220; --blue:#2563EB; --blue-d:#1D4ED8; --indigo:#6366F1;
+  --line:#E6EAF2; --muted:#6B7A90; --bg:#F6F8FC; --white:#fff;
+  --grad:linear-gradient(135deg,#2563EB 0%,#4F46E5 55%,#7C3AED 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#E9EDF5;font-family:'Cairo','Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+.gallery{display:flex;flex-wrap:wrap;gap:44px;padding:44px;align-items:flex-start}
+
+.phone{
+  width:390px;height:844px;border-radius:46px;background:#0A0F1C;
+  padding:12px;box-shadow:0 30px 60px -20px rgba(15,23,42,.45),0 0 0 1px rgba(15,23,42,.6);
+  position:relative;overflow:hidden;flex:none;
+}
+.screen{width:100%;height:100%;border-radius:36px;overflow:hidden;position:relative;background:var(--bg);display:flex;flex-direction:column}
+.notch{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:104px;height:26px;background:#0A0F1C;border-radius:16px;z-index:60}
+.statusbar{height:52px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 6px;font-size:12.5px;font-weight:700;letter-spacing:.2px;color:var(--navy);flex:none;z-index:50}
+.statusbar.light{color:#fff}
+.statusbar .sb-r{display:flex;gap:6px;align-items:center;font-family:'Segoe UI'}
+.sig{display:flex;gap:2px;align-items:flex-end}
+.sig i{display:block;width:3px;background:currentColor;border-radius:1px}
+.sig i:nth-child(1){height:4px}.sig i:nth-child(2){height:6px}.sig i:nth-child(3){height:8px}.sig i:nth-child(4){height:10px}
+.batt{width:22px;height:11px;border:1.4px solid currentColor;border-radius:3px;position:relative;opacity:.9}
+.batt:after{content:'';position:absolute;inset:1.6px;width:70%;background:currentColor;border-radius:1px;right:1.6px;left:auto}
+
+/* ============ A. CHAT LIST ============ */
+.list-head{padding:6px 20px 12px;flex:none}
+.brandrow{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px}
+.logo{width:34px;height:34px;border-radius:11px;background:var(--grad);display:grid;place-items:center;box-shadow:0 6px 14px -4px rgba(37,99,235,.55)}
+.brand h1{font-size:21px;font-weight:800;color:var(--navy);letter-spacing:-.3px}
+.brand h1 span{color:var(--blue)}
+.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(140deg,#FBBF24,#F97316);display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px;box-shadow:0 4px 10px -3px rgba(249,115,22,.6)}
+.search{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:14px;height:42px;display:flex;align-items:center;gap:9px;padding:0 13px;color:var(--muted);font-size:13px;box-shadow:0 2px 6px rgba(15,23,42,.03)}
+.tabs{display:flex;gap:8px;margin-top:14px}
+.tab{font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:999px;color:var(--muted);background:#fff;border:1px solid var(--line)}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 6px 14px -6px rgba(15,23,42,.6)}
+.rows{flex:1;overflow:hidden;padding:4px 12px 0}
+.row{display:flex;gap:11px;align-items:center;padding:11px 10px;border-radius:16px;position:relative}
+.row+.row{margin-top:2px}
+.row.unread{background:#fff;box-shadow:0 4px 14px rgba(15,23,42,.05)}
+.pic{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:16px;flex:none;position:relative}
+.pic.b1{background:linear-gradient(140deg,#60A5FA,#2563EB)}
+.pic.b2{background:linear-gradient(140deg,#F472B6,#DB2777)}
+.pic.b3{background:linear-gradient(140deg,#34D399,#059669)}
+.pic.b4{background:linear-gradient(140deg,#A78BFA,#6D28D9)}
+.pic .flag{position:absolute;bottom:-3px;left:-3px;width:19px;height:19px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:10px;box-shadow:0 2px 5px rgba(0,0,0,.15)}
+.rowmain{flex:1;min-width:0}
+.rowtop{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.name{font-size:14.5px;font-weight:800;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.time{font-size:10.5px;color:#94A3B8;font-weight:700;flex:none}
+.preview{margin-top:3px;display:flex;flex-direction:column;gap:1px}
+.preview .o{font-size:12px;color:#7C8AA0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;direction:ltr;text-align:right}
+.preview .t{font-size:12.5px;color:#334155;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{font-size:9.5px;font-weight:800;color:#1D4ED8;background:#EAF1FF;border:1px solid #D7E4FF;border-radius:6px;padding:1px 5px;display:inline-flex;align-items:center;gap:3px;flex:none}
+.unread-dot{min-width:20px;height:20px;border-radius:10px;background:var(--blue);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center;padding:0 6px}
+.chips{display:flex;gap:4px;margin-top:4px}
+.chip-lang{font-size:9.5px;font-weight:800;color:#475569;background:#F1F5F9;border-radius:5px;padding:1px 5px;letter-spacing:.4px}
+.bottomnav{height:74px;flex:none;background:rgba(255,255,255,.92);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-around;padding-bottom:14px;backdrop-filter:blur(8px)}
+.navi{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:9.5px;font-weight:800;color:#94A3B8}
+.navi.on{color:var(--blue)}
+.homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:132px;height:5px;border-radius:3px;background:#0F172A;opacity:.85;z-index:70}
+
+/* ============ B. CHAT ============ */
+.chat-head{flex:none;padding:8px 16px 12px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:11px}
+.chat-head .pic{width:40px;height:40px;border-radius:13px;font-size:14px}
+.chat-title{flex:1}
+.chat-title b{font-size:15px;color:var(--navy);display:block}
+.chat-title span{font-size:11px;color:#059669;font-weight:700;display:flex;align-items:center;gap:4px;margin-top:1px}
+.dotlive{width:6px;height:6px;border-radius:50%;background:#10B981;display:inline-block}
+.iconbtn{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:#F4F7FC;color:#475569;flex:none}
+.chatbody{flex:1;padding:16px 14px;display:flex;flex-direction:column;gap:12px;overflow:hidden;background:
+  radial-gradient(120% 60% at 100% 0%,#EEF4FF 0%,transparent 60%),radial-gradient(120% 60% at 0% 100%,#F3EEFF 0%,transparent 55%),#F6F8FC}
+.daysep{align-self:center;font-size:10.5px;font-weight:800;color:#94A3B8;background:#fff;border:1px solid var(--line);padding:3px 10px;border-radius:999px}
+.msg{max-width:86%;display:flex;flex-direction:column;gap:0}
+.msg.in{align-self:flex-start}
+.msg.out{align-self:flex-end;align-items:flex-end}
+.bub{background:#fff;border-radius:16px;padding:9px 12px 8px;box-shadow:0 4px 12px rgba(15,23,42,.06);border:1px solid #EDF1F8}
+.msg.out .bub{background:var(--grad);border:none;box-shadow:0 8px 18px -8px rgba(37,99,235,.7)}
+.orig{font-size:13.5px;line-height:1.55;color:#8A97A8}
+.msg.out .orig{color:rgba(255,255,255,.72)}
+.trans{font-size:13.5px;line-height:1.6;color:var(--navy);font-weight:700;margin-top:4px;padding-top:6px;border-top:1px dashed #E2E8F0}
+.msg.out .trans{color:#fff;border-top-color:rgba(255,255,255,.28)}
+.meta{display:flex;align-items:center;gap:6px;margin-top:5px;font-size:9.5px;font-weight:700;color:#9AA7B8}
+.msg.out .meta{color:rgba(255,255,255,.8);justify-content:flex-end}
+.tbadge{font-size:9px;font-weight:800;color:#1D4ED8;background:#EAF1FF;border-radius:5px;padding:1px 5px;display:inline-flex;gap:3px;align-items:center}
+.msg.out .tbadge{color:#fff;background:rgba(255,255,255,.22)}
+.voicebar{display:flex;align-items:center;gap:8px;margin-top:7px;padding-top:7px;border-top:1px dashed rgba(255,255,255,.28)}
+.play{width:24px;height:24px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;flex:none}
+.wave{display:flex;align-items:center;gap:2px;height:18px;flex:1}
+.wave i{width:2px;border-radius:2px;background:rgba(255,255,255,.55)}
+.wave i.on{background:#fff}
+.lpmenu{background:rgba(15,23,42,.96);border-radius:15px;padding:6px;width:196px;align-self:center;box-shadow:0 20px 40px -16px rgba(15,23,42,.7);backdrop-filter:blur(6px)}
+.lpmenu div{display:flex;align-items:center;gap:9px;color:#E6EDF9;font-size:12px;font-weight:600;padding:7px 9px;border-radius:9px}
+.lpmenu div+div{border-top:1px solid rgba(255,255,255,.08)}
+.lpmenu .kbd{margin-right:auto;font-size:9px;color:#94A3B8;background:rgba(255,255,255,.1);padding:1px 5px;border-radius:4px;font-family:'Segoe UI'}
+.composer{flex:none;padding:10px 12px 20px;background:#fff;border-top:1px solid var(--line)}
+.langline{display:flex;align-items:center;justify-content:center;gap:7px;font-size:10.5px;font-weight:800;color:#64748B;margin-bottom:9px}
+.pill{background:#EFF4FF;color:#1D4ED8;border-radius:6px;padding:2px 7px;font-size:10px;letter-spacing:.3px}
+.inputrow{display:flex;align-items:center;gap:8px}
+.input{flex:1;height:42px;border-radius:21px;background:#F4F7FC;border:1px solid var(--line);display:flex;align-items:center;padding:0 14px;font-size:12.5px;color:#94A3B8}
+.mic{width:42px;height:42px;border-radius:50%;background:var(--grad);display:grid;place-items:center;box-shadow:0 8px 16px -6px rgba(37,99,235,.8);flex:none}
+.send{width:42px;height:42px;border-radius:50%;background:var(--navy);display:grid;place-items:center;flex:none}
+
+/* ============ C. FACE TO FACE ============ */
+.f2f{background:linear-gradient(165deg,#0B1220 0%,#111C33 45%,#0F172A 100%);color:#fff;position:relative;overflow:hidden}
+.f2f .glow{position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(80px);opacity:.5}
+.f2f .g1{background:#2563EB;top:-140px;right:-120px}
+.f2f .g2{background:#7C3AED;bottom:-160px;left:-140px}
+.f2f-wrap{position:relative;z-index:2;display:flex;flex-direction:column;height:100%}
+.f2f-half{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:6px 22px}
+.f2f-half.flip{transform:rotate(180deg)}
+.f2f-lang{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:800;color:rgba(255,255,255,.62);letter-spacing:.4px}
+.flagdot{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:10px}
+.micbig{width:96px;height:96px;border-radius:50%;background:linear-gradient(145deg,#2563EB,#4F46E5);display:grid;place-items:center;position:relative;box-shadow:0 0 0 10px rgba(37,99,235,.14),0 0 0 22px rgba(37,99,235,.07),0 20px 40px -14px rgba(37,99,235,.9)}
+.micbig.alt{background:linear-gradient(145deg,#7C3AED,#4F46E5);box-shadow:0 0 0 10px rgba(124,58,237,.14),0 0 0 22px rgba(124,58,237,.07),0 20px 40px -14px rgba(124,58,237,.9)}
+.hint{font-size:11px;color:rgba(255,255,255,.55);font-weight:600;text-align:center}
+.livetext{font-size:18px;font-weight:800;line-height:1.5;text-align:center;max-width:300px;min-height:54px}
+.livetext small{display:block;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.55);margin-top:5px;direction:ltr}
+.f2f-mid{height:40px;display:flex;align-items:center;justify-content:center;gap:10px;flex:none}
+.f2f-mid .ln{height:1px;width:54px;background:rgba(255,255,255,.14)}
+.swapbtn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;color:#fff}
+.bigwave{display:flex;align-items:center;gap:3px;height:32px}
+.bigwave i{width:3px;border-radius:2px;background:rgba(255,255,255,.55)}
+.bigwave i.hi{background:#60A5FA}
+
+/* ============ D. LIVE CAPTIONS ============ */
+.caps{background:linear-gradient(170deg,#0B1220 0%,#0F172A 60%,#131F38 100%);color:#fff}
+.caps-head{display:flex;align-items:center;justify-content:space-between;padding:4px 18px 0;flex:none}
+.livetag{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.8px;background:rgba(239,68,68,.14);color:#FCA5A5;border:1px solid rgba(239,68,68,.32);padding:3px 8px;border-radius:999px}
+.rec{width:6px;height:6px;border-radius:50%;background:#EF4444}
+.caps-title{padding:14px 18px 0;flex:none}
+.caps-title h3{font-size:17px;font-weight:800}
+.caps-title p{font-size:11px;color:rgba(255,255,255,.5);font-weight:600;margin-top:3px;display:flex;gap:8px;align-items:center}
+.speakers{display:flex;gap:-6px;margin-top:0;padding:12px 18px 0;flex:none}
+.spk{width:30px;height:30px;border-radius:50%;border:2px solid #0F172A;display:grid;place-items:center;font-size:11px;font-weight:800;margin-left:-8px}
+.caps-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 16px;gap:12px}
+.capcard{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:16px 16px 14px;backdrop-filter:blur(8px)}
+.capspeaker{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:800;color:#93C5FD;letter-spacing:.4px;margin-bottom:9px}
+.capline{font-size:16.5px;line-height:1.55;font-weight:700;direction:ltr;text-align:left;color:#F1F5F9}
+.capstrad{font-size:15.5px;line-height:1.65;font-weight:700;color:#BFD3F7;margin-top:9px;padding-top:9px;border-top:1px dashed rgba(255,255,255,.14)}
+.ghost{opacity:.42}
+.caps-foot{flex:none;padding:14px 16px 24px}
+.waveline{display:flex;align-items:center;gap:2px;height:34px;margin-bottom:12px;opacity:.85}
+.waveline i{flex:1;border-radius:2px;background:linear-gradient(180deg,#60A5FA,#3B82F6)}
+.controls{display:flex;align-items:center;justify-content:center;gap:14px}
+.cbtn{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;color:#fff}
+.cbtn.stop{background:#EF4444;border-color:#EF4444;width:56px;height:56px;box-shadow:0 12px 26px -10px rgba(239,68,68,.9)}
+
+/* ============ E. VOICE CLONE ============ */
+.vc-head{flex:none;padding:0 16px;display:flex;align-items:center;gap:10px}
+.vc-head b{font-size:14px;color:var(--navy)}
+.progress{display:flex;gap:5px;flex:1}
+.progress i{height:4px;border-radius:2px;background:#E2E8F0;flex:1}
+.progress i.on{background:var(--blue)}
+.vc-body{flex:1;padding:14px 18px;display:flex;flex-direction:column;gap:13px;overflow:hidden}
+.stepchip{align-self:center;font-size:10.5px;font-weight:800;color:#1D4ED8;background:#EAF1FF;border:1px solid #D7E4FF;padding:3px 11px;border-radius:999px}
+.vc-title{text-align:center}
+.vc-title h3{font-size:19px;font-weight:800;color:var(--navy);line-height:1.4}
+.vc-title p{font-size:12px;color:#7C8AA0;margin-top:5px;line-height:1.6;font-weight:600}
+.sample{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 6px 18px rgba(15,23,42,.05)}
+.sample p{font-size:13.5px;line-height:1.85;color:#334155;font-weight:600}
+.sample p mark{background:#FFF3C4;color:#7C4A03;border-radius:4px;padding:0 3px}
+.ringwrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:2px}
+.ring{width:112px;height:112px;border-radius:50%;background:conic-gradient(#2563EB 0 62%,#E8EEF9 62% 100%);display:grid;place-items:center;position:relative;box-shadow:0 12px 26px -14px rgba(37,99,235,.8)}
+.ring:after{content:'';position:absolute;inset:9px;border-radius:50%;background:#F6F8FC}
+.ring .inner{position:relative;z-index:2;text-align:center}
+.ring .inner b{display:block;font-size:23px;color:var(--navy);letter-spacing:-.5px;font-family:'Segoe UI',sans-serif;font-weight:700}
+.ring .inner span{font-size:9px;font-weight:800;color:#94A3B8;letter-spacing:.6px}
+.tinywave{display:flex;align-items:center;gap:2.5px;height:26px}
+.tinywave i{width:3px;border-radius:2px;background:#93B4F8}
+.noise{display:flex;align-items:center;gap:8px;background:#ECFDF5;border:1px solid #CFFAE4;border-radius:11px;padding:7px 11px;font-size:11px;font-weight:800;color:#047857;align-self:center}
+.meter{display:flex;gap:2px}
+.meter i{width:3px;height:10px;border-radius:1px;background:#10B981}
+.vc-actions{display:flex;gap:9px;flex:none;padding:0 18px 26px}
+.btn{flex:1;height:48px;border-radius:15px;display:grid;place-items:center;font-size:13.5px;font-weight:800;font-family:'Cairo'}
+.btn.primary{background:var(--grad);color:#fff;box-shadow:0 12px 24px -12px rgba(37,99,235,.9)}
+.btn.ghost{background:#fff;color:#475569;border:1px solid var(--line)}
+.hintrow{font-size:10.5px;color:#94A3B8;font-weight:700;text-align:center;padding-bottom:8px}
+
+/* ============ F. BILLING ============ */
+.bill{background:#0F172A;position:relative}
+.bill .dim{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0%,#1E293B 0%,#0F172A 70%)}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:28px 28px 0 0;padding:10px 18px 26px;box-shadow:0 -20px 50px rgba(2,6,23,.5);z-index:5}
+.sheet .grip{width:40px;height:4px;border-radius:2px;background:#E2E8F0;margin:0 auto 14px}
+.turbo{display:flex;align-items:center;gap:10px}
+.turbo .ic{width:42px;height:42px;border-radius:13px;background:var(--grad);display:grid;place-items:center;box-shadow:0 10px 20px -10px rgba(37,99,235,.9)}
+.turbo h3{font-size:17px;font-weight:800;color:var(--navy);line-height:1.2}
+.turbo p{font-size:10.5px;color:#7C8AA0;font-weight:700;margin-top:2px}
+.usecard{margin-top:14px;background:#F8FAFF;border:1px solid #E7EEFF;border-radius:16px;padding:12px 13px}
+.usecard .top{display:flex;justify-content:space-between;font-size:10.5px;font-weight:800;color:#475569}
+.usecard .top b{color:var(--navy)}
+.bar{height:7px;border-radius:4px;background:#E4EAF6;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:74.4%;border-radius:4px;background:linear-gradient(90deg,#2563EB,#7C3AED)}
+.plan{display:flex;gap:9px;margin-top:14px}
+.pcard{flex:1;border:1.5px solid #E2E8F0;border-radius:16px;padding:11px 10px;position:relative;background:#fff}
+.pcard.on{border-color:var(--blue);background:#F5F9FF;box-shadow:0 10px 24px -16px rgba(37,99,235,.9)}
+.pcard .tag{position:absolute;top:-9px;left:10px;font-size:8.5px;font-weight:800;background:var(--blue);color:#fff;padding:1px 7px;border-radius:999px;letter-spacing:.3px}
+.pcard b{display:block;font-size:12.5px;color:var(--navy);font-weight:800}
+.pcard .price{font-size:20px;font-weight:800;color:var(--navy);margin-top:3px;letter-spacing:-.5px;font-family:'Segoe UI',sans-serif}
+.pcard .price small{font-size:10px;font-weight:700;color:#94A3B8;font-family:'Cairo'}
+.pcard span{font-size:9.5px;color:#94A3B8;font-weight:700;display:block;margin-top:2px}
+.perks{margin-top:13px;display:flex;flex-direction:column;gap:7px}
+.perk{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;color:#334155}
+.check{width:17px;height:17px;border-radius:50%;background:#E8F5EE;color:#059669;display:grid;place-items:center;flex:none}
+.sheet .btn{margin-top:15px;height:50px;border-radius:16px}
+.fineprint{text-align:center;font-size:9.5px;color:#94A3B8;font-weight:700;margin-top:9px}
+
+/* ============ DIAGRAM ============ */
+.diagram{width:1180px;background:#fff;padding:38px 34px 34px;font-family:'Cairo';border-radius:18px}
+.dg-eyebrow{font-size:11px;font-weight:800;letter-spacing:1.4px;color:#2563EB;margin-bottom:8px}
+.dg-title{font-size:24px;font-weight:800;color:#0F172A;margin-bottom:4px}
+.dg-sub{font-size:12.5px;color:#7C8AA0;font-weight:600;margin-bottom:26px}
+.dg-flow{display:flex;align-items:stretch;gap:0;direction:rtl}
+.dg-col{flex:1;display:flex;flex-direction:column;gap:10px}
+.dg-card{background:#F8FAFC;border:1px solid #E6EAF2;border-radius:14px;padding:14px 13px;position:relative;min-height:132px}
+.dg-card.hi{background:linear-gradient(160deg,#F3F7FF,#EDF2FF);border-color:#CFDDFB}
+.dg-num{width:20px;height:20px;border-radius:7px;background:#0F172A;color:#fff;font-size:10.5px;font-weight:800;display:grid;place-items:center;font-family:'Segoe UI';margin-bottom:8px}
+.dg-card h4{font-size:13.5px;font-weight:800;color:#0F172A;line-height:1.35}
+.dg-card .en{font-size:9.5px;font-weight:800;color:#2563EB;letter-spacing:.4px;margin-top:2px;direction:ltr;text-align:right}
+.dg-card p{font-size:10.5px;color:#6B7A90;line-height:1.6;margin-top:7px;font-weight:600}
+.dg-card .tech{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.dg-card .tech span{font-size:8.8px;font-weight:800;background:#fff;border:1px solid #DCE4F2;color:#475569;border-radius:5px;padding:1.5px 5px;direction:ltr}
+.arrow{width:34px;display:grid;place-items:center;color:#94A3B8;flex:none}
+.dg-return{margin-top:16px;border:1px dashed #B9CDF3;background:#F6FAFF;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;font-size:11.5px;font-weight:800;color:#1D4ED8}
+.dg-infra{margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.infra{background:#0F172A;border-radius:12px;padding:11px 12px;color:#fff}
+.infra b{font-size:11.5px;font-weight:800;display:block}
+.infra span{font-size:9.5px;color:#9FB0C6;font-weight:700;display:block;margin-top:3px;direction:ltr;text-align:right}
+.dg-legend{margin-top:18px;display:flex;gap:18px;font-size:10px;font-weight:700;color:#7C8AA0;align-items:center}
+.lg{display:flex;align-items:center;gap:6px}
+.sw{width:14px;height:9px;border-radius:3px;border:1px solid #CFDDFB;background:#F3F7FF}
+.sw.d{background:#0F172A;border-color:#0F172A}
+</style>
+</head>
+<body>
+<div class="gallery">
+
+<!-- A -->
+<div class="phone"><div class="notch"></div><div class="screen" id="s1">
+  <div class="statusbar"><div class="sb-r"><div class="sig"><i></i><i></i><i></i><i></i></div><svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4.2a9 9 0 0 1 13 0M3.4 6.6a5.6 5.6 0 0 1 8.2 0M6 9a2 2 0 0 1 3 0"/></svg><div class="batt"></div></div><span>21:04</span></div>
+  <div class="list-head">
+    <div class="brandrow">
+      <div class="brand">
+        <div class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M4 12h4l2-6 3 12 2.5-6H20"/></svg></div>
+        <h1>Intent<span>.</span></h1>
+      </div>
+      <div class="avatar">أ</div>
+    </div>
+    <div class="search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg> ابحث في المحادثات أو اللغات…</div>
+    <div class="tabs"><div class="tab on">المحادثات</div><div class="tab">الترجمة الحية</div><div class="tab">المكالمات</div></div>
+  </div>
+  <div class="rows">
+    <div class="row unread">
+      <div class="pic b1">L<span class="flag">🇫🇷</span></div>
+      <div class="rowmain">
+        <div class="rowtop"><div class="name">Léa Martin</div><div class="time">21:02</div></div>
+        <div class="preview"><div class="o">Salut, on se voit toujours à 18h ?</div><div class="t">مرحباً، هل ما زال موعدنا في السادسة مساءً؟</div></div>
+        <div class="chips"><span class="chip-lang">FR</span><span class="chip-lang">→</span><span class="chip-lang">AR</span><span class="badge">✓ Translated</span></div>
+      </div>
+      <div class="unread-dot">2</div>
+    </div>
+    <div class="row unread">
+      <div class="pic b2">M<span class="flag">🇮🇹</span></div>
+      <div class="rowmain">
+        <div class="rowtop"><div class="name">Marco Rossi</div><div class="time">20:41</div></div>
+        <div class="preview"><div class="o">Il volo è in ritardo di due ore</div><div class="t">الرحلة متأخرة ساعتين، سأصل ليلاً</div></div>
+        <div class="chips"><span class="chip-lang">IT</span><span class="chip-lang">→</span><span class="chip-lang">AR</span><span class="badge">✓ Translated</span></div>
+      </div>
+      <div class="unread-dot">1</div>
+    </div>
+    <div class="row">
+      <div class="pic b3">陈<span class="flag">🇨🇳</span></div>
+      <div class="rowmain">
+        <div class="rowtop"><div class="name">Chen Wei</div><div class="time">19:58</div></div>
+        <div class="preview"><div class="o">明天的会议改到十点</div><div class="t">اجتماع الغد تأجّل إلى الساعة العاشرة</div></div>
+        <div class="chips"><span class="chip-lang">ZH</span><span class="chip-lang">→</span><span class="chip-lang">AR</span><span class="badge">✓ Translated</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="pic b4">S<span class="flag">🇵🇹</span></div>
+      <div class="rowmain">
+        <div class="rowtop"><div class="name">Sofia Almeida</div><div class="time">18:20</div></div>
+        <div class="preview"><div class="o">🎙 Mensagem de voz · 00:12</div><div class="t">رسالة صوتية مستنسخة بالنبرة الأصلية</div></div>
+        <div class="chips"><span class="chip-lang">PT</span><span class="chip-lang">→</span><span class="chip-lang">AR</span><span class="badge">🎙 Cloned voice</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="pic b1">J<span class="flag">🇩🇪</span></div>
+      <div class="rowmain">
+        <div class="rowtop"><div class="name">Jonas Weber</div><div class="time">أمس</div></div>
+        <div class="preview"><div class="o">Können wir das Protokoll teilen?</div><div class="t">هل يمكننا مشاركة محضر الاجتماع؟</div></div>
+        <div class="chips"><span class="chip-lang">DE</span><span class="chip-lang">→</span><span class="chip-lang">AR</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bottomnav">
+    <div class="navi on"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.5-5.5A8 8 0 1 1 21 12Z"/></svg>المحادثات</div>
+    <div class="navi"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M7 11h4M7 15h7"/></svg>التفريغ</div>
+    <div class="navi"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 3v18"/></svg>وجهاً لوجه</div>
+    <div class="navi"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2 2M16.4 16.4l2 2M18.4 5.6l-2 2M7.6 16.4l-2 2"/></svg>الإعدادات</div>
+  </div>
+  <div class="homebar"></div>
+</div></div>
+
+<!-- B -->
+<div class="phone"><div class="notch"></div><div class="screen" id="s2">
+  <div class="statusbar"><div class="sb-r"><div class="sig"><i></i><i></i><i></i><i></i></div><svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4.2a9 9 0 0 1 13 0M3.4 6.6a5.6 5.6 0 0 1 8.2 0M6 9a2 2 0 0 1 3 0"/></svg><div class="batt"></div></div><span>21:07</span></div>
+  <div class="chat-head">
+    <div class="iconbtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m15 6-6 6 6 6"/></svg></div>
+    <div class="pic b1">L<span class="flag">🇫🇷</span></div>
+    <div class="chat-title"><b>Léa Martin</b><span><span class="dotlive"></span>متصل الآن · ترجمة فورية</span></div>
+    <div class="iconbtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l5-3v10l-5-3"/><rect x="3" y="6" width="12" height="12" rx="3"/></svg></div>
+  </div>
+  <div class="chatbody">
+    <div class="daysep">اليوم</div>
+    <div class="msg in">
+      <div class="bub">
+        <div class="orig" dir="ltr" style="text-align:left">Hi! Will you be at the studio tomorrow morning?</div>
+        <div class="trans">مرحباً! هل ستكون في الاستوديو صباح الغد؟</div>
+        <div class="meta"><span class="tbadge">✦ Translated</span> FR → AR · أقل من 250 مللي ثانية</div>
+      </div>
+    </div>
+    <div class="msg out">
+      <div class="bub">
+        <div class="orig">نعم، سأصل قبل التاسعة بقليل.</div>
+        <div class="trans" dir="ltr" style="text-align:left">Yes, I'll be there just before nine.</div>
+        <div class="voicebar">
+          <div class="play"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="wave"><i style="height:7px" class="on"></i><i style="height:14px" class="on"></i><i style="height:9px" class="on"></i><i style="height:16px" class="on"></i><i style="height:6px"></i><i style="height:12px"></i><i style="height:8px"></i><i style="height:15px"></i><i style="height:5px"></i><i style="height:11px"></i><i style="height:7px"></i><i style="height:13px"></i><i style="height:6px"></i><i style="height:9px"></i><i style="height:4px"></i></div>
+          <span style="font-size:9.5px;font-weight:800;color:#fff">00:04</span>
+        </div>
+        <div class="meta"><span class="tbadge">🎙 نسختك الصوتية</span> 21:06 ✓✓</div>
+      </div>
+    </div>
+    <div class="msg in">
+      <div class="bub">
+        <div class="orig" dir="ltr" style="text-align:left">Parfait 🙌 je t'envoie le dossier.</div>
+        <div class="trans">ممتاز 🙌 سأرسل لك الملف الآن.</div>
+        <div class="meta"><span class="tbadge">✦ Translated</span> 21:07</div>
+      </div>
+    </div>
+    <div class="lpmenu">
+      <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#93C5FD" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h7"/></svg>عرض النص الأصلي<span class="kbd">⌥T</span></div>
+      <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#93C5FD" stroke-width="2"><path d="M12 3a4 4 0 0 0-4 4v5a4 4 0 0 0 8 0V7a4 4 0 0 0-4-4Z"/><path d="M5 11a7 7 0 0 0 14 0"/></svg>إعادة توليد الصوت<span class="kbd">⌥V</span></div>
+      <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#93C5FD" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>تعديل الترجمة يدوياً</div>
+      <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#93C5FD" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg>ترجمة إلى لغة ثالثة</div>
+    </div>
+    <div class="msg in" style="opacity:.55">
+      <div class="bub"><div class="trans" style="border:0;margin:0;padding:0;color:#94A3B8;font-weight:600">يكتب الآن…</div></div>
+    </div>
+  </div>
+  <div class="composer">
+    <div class="langline"><span class="pill">العربية</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.4"><path d="M4 12h16M14 6l6 6-6 6"/></svg><span class="pill">Français</span><span style="color:#94A3B8">· ترجمة تلقائية</span></div>
+    <div class="inputrow">
+      <div class="mic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+      <div class="input">اكتب رسالة…</div>
+      <div class="send"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-8-8-4Z"/></svg></div>
+    </div>
+  </div>
+  <div class="homebar"></div>
+</div></div>
+
+<!-- C -->
+<div class="phone"><div class="notch"></div><div class="screen f2f" id="s3">
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <div class="statusbar light"><div class="sb-r"><div class="sig"><i></i><i></i><i></i><i></i></div><svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4.2a9 9 0 0 1 13 0M3.4 6.6a5.6 5.6 0 0 1 8.2 0M6 9a2 2 0 0 1 3 0"/></svg><div class="batt"></div></div><span>21:12</span></div>
+  <div class="f2f-wrap">
+    <div class="f2f-half flip">
+      <div class="f2f-lang"><span class="flagdot">🇫🇷</span> Français · Léa</div>
+      <div class="micbig alt"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+      <div class="bigwave"><i style="height:8px"></i><i style="height:18px" class="hi"></i><i style="height:12px" class="hi"></i><i style="height:26px" class="hi"></i><i style="height:16px" class="hi"></i><i style="height:9px"></i><i style="height:20px" class="hi"></i><i style="height:11px" class="hi"></i><i style="height:6px"></i><i style="height:14px" class="hi"></i><i style="height:9px"></i></div>
+      <div class="livetext">Le vol de demain est confirmé à neuf heures.<small>ترجمة: الرحلة غداً مؤكدة في التاسعة</small></div>
+    </div>
+    <div class="f2f-mid"><div class="ln"></div><div class="swapbtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 4v13M7 4 4 7M7 4l3 3M17 20V7M17 20l3-3M17 20l-3-3"/></svg></div><div class="ln"></div></div>
+    <div class="f2f-half">
+      <div class="livetext">هل وصلت إلى المطار؟ سأنتظرك عند المخرج.<small dir="ltr">Did you arrive at the airport? I'll wait at the exit.</small></div>
+      <div class="bigwave"><i style="height:9px" class="hi"></i><i style="height:22px" class="hi"></i><i style="height:14px" class="hi"></i><i style="height:28px" class="hi"></i><i style="height:12px" class="hi"></i><i style="height:18px" class="hi"></i><i style="height:7px"></i><i style="height:15px" class="hi"></i><i style="height:21px" class="hi"></i><i style="height:8px"></i><i style="height:12px" class="hi"></i></div>
+      <div class="micbig"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+      <div class="f2f-lang"><span class="flagdot">🇸🇦</span> العربية · أنت</div>
+    </div>
+  </div>
+  <div class="homebar" style="background:#fff;opacity:.5"></div>
+</div></div>
+
+<!-- D -->
+<div class="phone"><div class="notch"></div><div class="screen caps" id="s4">
+  <div class="statusbar light"><div class="sb-r"><div class="sig"><i></i><i></i><i></i><i></i></div><svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4.2a9 9 0 0 1 13 0M3.4 6.6a5.6 5.6 0 0 1 8.2 0M6 9a2 2 0 0 1 3 0"/></svg><div class="batt"></div></div><span>21:24</span></div>
+  <div class="caps-head">
+    <div class="livetag"><span class="rec"></span> LIVE CAPTIONS</div>
+    <div style="font-size:10.5px;font-weight:800;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:5px">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>00:42:18
+    </div>
+  </div>
+  <div class="caps-title">
+    <h3>اجتماع فريق المنتج · الربع الرابع</h3>
+    <p><span class="pill" style="background:rgba(37,99,235,.2);color:#BFD3F7">EN</span> ⇄ <span class="pill" style="background:rgba(124,58,237,.2);color:#DDD6FE">AR</span> · 6 مشاركين · Google Meet</p>
+  </div>
+  <div class="speakers"><div class="spk" style="background:#2563EB">A</div><div class="spk" style="background:#DB2777">M</div><div class="spk" style="background:#059669">C</div><div class="spk" style="background:#7C3AED">L</div><div class="spk" style="background:#0F172A;color:#94A3B8;font-size:9.5px">+2</div></div>
+  <div class="caps-body">
+    <div class="capcard ghost">
+      <div class="capspeaker"><span style="width:6px;height:6px;border-radius:50%;background:#93C5FD"></span> AMINA · PRODUCT LEAD</div>
+      <div class="capsline">We need to lock the release date before Friday.</div>
+      <div class="capstrad">علينا تثبيت تاريخ الإصدار قبل يوم الجمعة.</div>
+    </div>
+    <div class="capcard">
+      <div class="capspeaker"><span style="width:6px;height:6px;border-radius:50%;background:#93C5FD"></span> MARCO · ENGINEERING</div>
+      <div class="capsline">The beta build is ready — latency is now under 800&nbsp;ms.</div>
+      <div class="capstrad">نسخة البيتا جاهزة الآن، وزمن التأخير انخفض إلى أقل من 800 مللي ثانية.</div>
+    </div>
+    <div class="capcard ghost" style="opacity:.3">
+      <div class="capspeaker"><span style="width:6px;height:6px;border-radius:50%;background:#93C5FD"></span> CHEN · DESIGN</div>
+      <div class="capsline">…</div>
+      <div class="capstrad">…</div>
+    </div>
+  </div>
+  <div class="caps-foot">
+    <div class="waveline">
+      <i style="height:8px"></i><i style="height:16px"></i><i style="height:11px"></i><i style="height:24px"></i><i style="height:14px"></i><i style="height:30px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:22px"></i><i style="height:31px"></i><i style="height:15px"></i><i style="height:7px"></i><i style="height:19px"></i><i style="height:27px"></i><i style="height:12px"></i><i style="height:21px"></i><i style="height:34px"></i><i style="height:16px"></i><i style="height:8px"></i><i style="height:23px"></i><i style="height:13px"></i><i style="height:29px"></i><i style="height:10px"></i><i style="height:18px"></i><i style="height:25px"></i><i style="height:14px"></i><i style="height:7px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:16px"></i>
+    </div>
+    <div class="controls">
+      <div class="cbtn"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+      <div class="cbtn stop"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="7" width="10" height="10" rx="2.5"/></svg></div>
+      <div class="cbtn"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h13"/></svg></div>
+    </div>
+  </div>
+  <div class="homebar" style="background:#fff;opacity:.5"></div>
+</div></div>
+
+<!-- E -->
+<div class="phone"><div class="notch"></div><div class="screen" id="s5">
+  <div class="statusbar"><div class="sb-r"><div class="sig"><i></i><i></i><i></i><i></i></div><svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4.2a9 9 0 0 1 13 0M3.4 6.6a5.6 5.6 0 0 1 8.2 0M6 9a2 2 0 0 1 3 0"/></svg><div class="batt"></div></div><span>21:31</span></div>
+  <div class="vc-head">
+    <div class="iconbtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></div>
+    <b>استنساخ الصوت</b>
+    <div class="progress"><i class="on"></i><i class="on"></i><i></i></div>
+  </div>
+  <div class="vc-body">
+    <div class="stepchip">الخطوة 2 من 3 · قراءة العينة</div>
+    <div class="vc-title">
+      <h3>اقرأ النص التالي بصوت طبيعي</h3>
+      <p>عشر ثوانٍ فقط كافية لالتقاط بصمتك الصوتية بدقة.</p>
+    </div>
+    <div class="sample">
+      <p>«<mark>صباح الخير</mark>، اسمي <mark>أيوب</mark> وأعمل في مجال التصميم. أحبّ أن أشارك الأفكار مع زملائي في فريق <mark>المنتج</mark> كل صباح.»</p>
+    </div>
+    <div class="ringwrap">
+      <div class="ring"><div class="inner"><b>00:07</b><span>جاري التسجيل</span></div></div>
+      <div class="tinywave"><i style="height:8px"></i><i style="height:15px"></i><i style="height:11px"></i><i style="height:20px"></i><i style="height:9px"></i><i style="height:24px"></i><i style="height:13px"></i><i style="height:18px"></i><i style="height:7px"></i><i style="height:22px"></i><i style="height:12px"></i><i style="height:16px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:8px"></i><i style="height:14px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:6px"></i><i style="height:13px"></i></div>
+      <div class="noise"><div class="meter"><i></i><i></i><i></i><i></i></div>مستوى الضجيج منخفض · جودة ممتازة</div>
+    </div>
+    <div class="hintrow">سيتم استنساخ النبرة والتواتر والانفعال الصوتي فقط، دون تخزين محتوى المحادثات.</div>
+  </div>
+  <div class="vc-actions">
+    <div class="btn ghost">إعادة</div>
+    <div class="btn primary">إنهاء التسجيل وتحليل البصمة</div>
+  </div>
+  <div class="homebar"></div>
+</div></div>
+
+<!-- F -->
+<div class="phone"><div class="notch"></div><div class="screen bill" id="s6">
+  <div class="dim"></div>
+  <div class="statusbar light"><div class="sb-r"><div class="sig"><i></i><i></i><i></i><i></i></div><svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4.2a9 9 0 0 1 13 0M3.4 6.6a5.6 5.6 0 0 1 8.2 0M6 9a2 2 0 0 1 3 0"/></svg><div class="batt"></div></div><span>21:38</span></div>
+  <div class="sheet">
+    <div class="grip"></div>
+    <div class="turbo">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12Z"/></svg></div>
+      <div><h3>Intent Turbo</h3><p>ترجمة غير محدودة · صوت مستنسخ · بلا إعلانات</p></div>
+      <div class="badge" style="margin-right:auto">الأكثر اختياراً</div>
+    </div>
+    <div class="usecard">
+      <div class="top"><span>الحصة المجانية اليوم</span><b>128 / 500 كلمة</b></div>
+      <div class="bar"><i></i></div>
+      <div class="top" style="margin-top:7px;font-size:9.5px;color:#94A3B8"><span>تُعاد الحصة الساعة 00:00</span><span>دقائق الصوت: 4 / 10</span></div>
+    </div>
+    <div class="plan">
+      <div class="pcard on"><div class="tag">توفير 40%</div><b>سنوي</b><div class="price">$49.99<small> / سنة</small></div><span>4.16 $ شهرياً</span></div>
+      <div class="pcard"><b>شهري</b><div class="price">$6.99<small> / شهر</small></div><span>إلغاء في أي وقت</span></div>
+    </div>
+    <div class="perks">
+      <div class="perk"><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="m4 12 5 5L20 6"/></svg></div>ترجمة نصية وصوتية غير محدودة بـ 73 لغة</div>
+      <div class="perk"><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="m4 12 5 5L20 6"/></svg></div>مكالمات مترجمة بصوتك المستنسخ (31 لغة)</div>
+      <div class="perk"><div class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="m4 12 5 5L20 6"/></svg></div>ترجمة مستندات وفيديو حتى 200 ميجابايت</div>
+    </div>
+    <div class="btn primary">ترقية إلى Turbo</div>
+    <div class="fineprint">الأسعار المعروضة توضيحية · تُدار الاشتراكات عبر App Store / Google Play</div>
+  </div>
+  <div class="homebar" style="background:#0F172A"></div>
+</div></div>
+
+</div>
+
+<!-- Diagram -->
+<div style="padding:0 44px 44px" id="diagramWrap">
+<div class="diagram" id="diagram">
+  <div class="dg-eyebrow">INTENT 0.6.0.1 — REPLICATION ARCHITECTURE</div>
+  <div class="dg-title">معمارية الاستنساخ: خط أنابيب الصوت في الزمن الفعلي</div>
+  <div class="dg-sub">خمس مراحل متصلة ببروتوكولات منخفضة التأخير، تعمل بالتوازي على تدفق واحد للمستخدم.</div>
+  <div class="dg-flow">
+    <div class="dg-col">
+      <div class="dg-card hi"><div class="dg-num">1</div><h4>تطبيق الهاتف</h4><div class="en">CLIENT</div>
+        <p>التقاط PCM عالي الدقة، عرض الفقاعات ثنائية النص، وتشغيل الصوت المترجم.</p>
+        <div class="tech"><span>Flutter</span><span>flutter_sound</span><span>flutter_webrtc</span></div>
+      </div>
+    </div>
+    <div class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></div>
+    <div class="dg-col">
+      <div class="dg-card"><div class="dg-num">2</div><h4>بوابة الاتصال</h4><div class="en">API GATEWAY</div>
+        <p>مصادقة، تحديد معدل الطلبات، وتوجيه الجلسات إلى خدمات المعالجة المناسبة.</p>
+        <div class="tech"><span>FastAPI</span><span>WebSocket</span><span>gRPC</span></div>
+      </div>
+    </div>
+    <div class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></div>
+    <div class="dg-col">
+      <div class="dg-card"><div class="dg-num">3</div><h4>التفريغ الصوتي</h4><div class="en">STREAMING ASR</div>
+        <p>تحويل الكلام إلى نص مع كشف المتحدث وعلامات الترقيم أثناء البث.</p>
+        <div class="tech"><span>Deepgram Nova-2</span><span>Faster-Whisper</span><span>vLLM</span></div>
+      </div>
+    </div>
+    <div class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></div>
+    <div class="dg-col">
+      <div class="dg-card"><div class="dg-num">4</div><h4>الترجمة العصبية</h4><div class="en">NEURAL MT</div>
+        <p>ترجمة تحافظ على السياق والمصطلحات مع ذاكرة قصيرة للحوار.</p>
+        <div class="tech"><span>DeepL API v2</span><span>Qwen2.5</span><span>TensorRT-LLM</span></div>
+      </div>
+    </div>
+    <div class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 12H5M11 6l-6 6 6 6"/></svg></div>
+    <div class="dg-col">
+      <div class="dg-card hi"><div class="dg-num">5</div><h4>الصوت المستنسخ</h4><div class="en">ZERO-SHOT TTS</div>
+        <p>توليد الكلام بالنبرة الأصلية عبر متجه المتحدث، ثم بثّه فوراً.</p>
+        <div class="tech"><span>ElevenLabs IVC</span><span>Coqui XTTS-v2</span><span>OpenVoice v2</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="dg-return">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+    إعادة البث إلى العميل عبر WebRTC / Opus — دبلجة صوتية ونص متزامن في أقل من ثانية واحدة
+  </div>
+  <div class="dg-infra">
+    <div class="infra"><b>خادم الوسائط</b><span>LiveKit Cloud / Server</span></div>
+    <div class="infra"><b>الناقل الفوري</b><span>Redis Pub/Sub</span></div>
+    <div class="infra"><b>قاعدة البيانات</b><span>PostgreSQL + Supabase</span></div>
+    <div class="infra"><b>تخزين الملفات</b><span>MinIO / S3</span></div>
+  </div>
+  <div class="dg-legend"><div class="lg"><div class="sw"></div>خدمات المعالجة</div><div class="lg"><div class="sw d"></div>البنية التحتية</div><div class="lg">◀ اتجاه تدفق الصوت والنص</div></div>
+</div>
+</div>
+</body>
+</html>

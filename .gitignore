@@ -1,0 +1,9 @@
+node_modules/
+*.zip
+jdk17/
+*.apk
+*.aab
+*.ap_
+android/app/build/
+android/app/.cxx/
+android/.gradle/

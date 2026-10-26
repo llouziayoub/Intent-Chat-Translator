@@ -1,0 +1,34 @@
+{
+  "name": "intent-chat-translator",
+  "version": "0.6.0.1",
+  "description": "Intent - The Chat Translator: Real-time neural conversation translator with zero-shot voice cloning",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "npx serve .",
+    "start:electron": "electron .",
+    "build:electron": "electron-builder",
+    "cap:add": "npx cap add android",
+    "cap:sync": "npx cap sync android",
+    "cap:open": "npx cap open android",
+    "build:apk": "npx cap sync android && cd android && gradlew assembleDebug"
+  },
+  "keywords": [
+    "intent",
+    "translator",
+    "real-time",
+    "realm-db",
+    "electron",
+    "apk",
+    "voice-cloning"
+  ],
+  "author": "GroupUltra Limited / Intent Inc.",
+  "license": "MIT",
+  "devDependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "serve": "^14.2.3"
+  }
+}

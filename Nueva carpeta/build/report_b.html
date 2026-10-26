@@ -1,0 +1,471 @@
+<!-- ================= SECTION 2 (b) ================= -->
+<section class="page" id="s2b" data-anchor="s2b">
+  <div class="ph"><div class="r"><span class="dot"></span>INTENT 0.6.0.1</div><div>02 · المواجهة المباشرة والاجتماعات</div></div>
+  <div class="pg-body">
+    <div class="secline"><span class="k">03</span><span class="t">وضع المواجهة المباشرة (Face to Face)</span></div>
+    <p>يحوّل هذا الوضع الهاتف المحمول إلى مترجم شخصي مباشر بين شخصين يتواجدان في المساحة الفيزيائية نفسها. يعتمد التصميم
+    على شاشة مقسومة، يتجه نصفها العلوي بزاوية <b>180 درجة</b> نحو الشخص المقابل، بينما يواجه النصف السفلي مالك الجهاز.
+    يلتقط النظام الصوت الشفهي لكلا الطرفين ويترجمه وينطقه مع تفريغ نصي متزامن في الزمن الفعلي.</p>
+
+    <div class="row mt3">
+      <div class="col" style="flex:.42">
+        <figure>
+          <div class="fig-frame dk" style="padding:3mm">
+            <img src="img/ui3.png" style="width:52mm;border-radius:4.6mm" alt="وضع المواجهة المباشرة">
+          </div>
+          <figcaption><span class="lbl">شكل 4</span> الشاشة المقسومة: النصف العلوي مقلوب 180° ليواجه الطرف الآخر، وزرّا ميكروفون متوازيان مع مؤشر موجي.</figcaption>
+        </figure>
+      </div>
+      <div class="col" style="flex:.58">
+        <div class="card">
+          <h4 class="mini">ثلاثة قرارات تصميمية</h4>
+          <ul class="list tight" style="margin-bottom:0">
+            <li><b>التصميم المتناظر:</b> يُعرض محتوى الجزء العلوي مقلوباً رأسياً بزاوية 180 درجة، لتسهيل القراءة دون الحاجة لتدوير الهاتف.</li>
+            <li><b>أزرار التقاط متوازية:</b> ميكروفون كبير في كل جانب بلون متباين، يضيء عند الحديث ليعكس الالتقاط والتحويل المباشر إلى الطرف الآخر.</li>
+            <li><b>مؤشر البث المرئي:</b> موجة تتفاعل مع درجة الصوت للتأكيد على جودة الالتقاط ومنع تداخل الأصوات.</li>
+          </ul>
+        </div>
+        <div class="callout mt3">
+          <div class="ic">!</div>
+          <p><b>تحدٍّ هندسي:</b> التقاط صوتين في مساحة واحدة يرفع خطر التداخل الصوتي (Echo &amp; Cross-talk). الحل المعتاد هو كشف نشاط الكلام (VAD) مع قمع الصدى (AEC) قبل تمرير التدفق إلى ASR، وإلا اختلطت الجُمل وتدهورت الترجمة.</p>
+        </div>
+        <div class="grid2 mt3">
+          <div class="soft" style="text-align:center;padding:3mm">
+            <div style="font-size:14pt;font-weight:800;color:var(--navy)">180°</div>
+            <div class="small" style="font-weight:700">دوران النصف العلوي</div>
+          </div>
+          <div class="soft" style="text-align:center;padding:3mm">
+            <div style="font-size:14pt;font-weight:800;color:var(--navy)">&lt;800<span style="font-size:8pt">ms</span></div>
+            <div class="small" style="font-weight:700">هدف التأخير التفاعلي</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="secline mt5"><span class="k">04</span><span class="t">التفريغ والترجمة المباشرة للاجتماعات (Live Captions)</span></div>
+    <p>صُممت الميزة لدعم التواجد في اللقاءات الجماعية والمحاضرات والفعاليات متعددة الجنسيات. يستمع النظام إلى الحديث
+    المتدفق، مع تحويله فورياً إلى شريط نصوص ثنائي اللغة ينساب على الشاشة. يضمن هذا المحرك مشاركة مستمرة للمستخدمين
+    في النقاشات الحية وتفادي العزلة اللغوية أثناء الاجتماعات الرسمية أو العائلية.</p>
+
+    <div class="row mt3">
+      <div class="col" style="flex:.66">
+        <div class="card">
+          <h4 class="mini">كيف يظهر في الاستخدام اليومي؟</h4>
+          <ul class="list tight" style="margin-bottom:0">
+            <li><b>طبقتان لكل متحدث:</b> سطر بلغة الاجتماع وسطر بلغة المستخدم، بلا حاجة للنظر إلى إعدادات.</li>
+            <li><b>تمييز المتحدثين:</b> أسماء وألوان مختصرة تحدّد من يتحدث الآن، ما يسهّل متابعة النقاش الجماعي.</li>
+            <li><b>لا تسجيل إجباري:</b> العرض تدفقي؛ ما يظهر على الشاشة ليس بالضرورة محفوظاً — وهي نقطة يجب حسمها في نسخة الاستنساخ.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col" style="flex:.34">
+        <figure>
+          <div class="fig-frame dk" style="padding:3mm">
+            <img src="img/ui4.png" style="width:41mm;border-radius:4.4mm" alt="الترجمة الحية">
+          </div>
+          <figcaption><span class="lbl">شكل 5</span> شريط الترجمة الحيّة ثنائي اللغة مع تمييز المتحدثين ومؤشر مستوى الصوت.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>صفحة {{P}} من {{TOTAL}}</span><span>تقرير تحليلي وهندسي · Intent 0.6.0.1</span><span class="num">06</span></div>
+</section>
+
+<!-- ================= SECTION 2 (c) ================= -->
+<section class="page" id="s2c" data-anchor="s2c">
+  <div class="ph"><div class="r"><span class="dot"></span>INTENT 0.6.0.1</div><div>02 · المكالمات والأدوات المساندة</div></div>
+  <div class="pg-body">
+    <div class="secline"><span class="k">05</span><span class="t">الترجمة الفورية للمكالمات الصوتية والمرئية</span></div>
+    <p>يدعم التطبيق المكالمات الصوتية والفيديوية المباشرة عبر بروتوكولات <span class="ltr">VoIP</span> المدمجة مع محركات
+    الترجمة. يتيح النظام استماع كل طرف للمكالمة بلسانه الأم عبر دبلجة صوتية فورية، مع عرض شريط تفريغ نصي بلسانين
+    متزامنين أسفل واجهة الاتصال.</p>
+
+    <div class="secline mt4"><span class="k">06</span><span class="t">أدوات الذكاء الاصطناعي المساندة والإنتاجية</span></div>
+    <p>يتضمّن الإصدار مجموعة من الأدوات المساندة المدمجة لرفع إنتاجية المستخدم في سياقات العمل والسفر:</p>
+
+    <div class="grid2 mt3">
+      <div class="card"><h4 class="mini">ترجمة المستندات</h4><p class="small" style="margin:0">دعم معالجة ملفات <span class="ltr">Word</span> و<span class="ltr">PDF</span> و<span class="ltr">TXT</span> وترجمتها، مع إمكانية تحميل النسخة المترجمة بنقرة واحدة.</p></div>
+      <div class="card"><h4 class="mini">مولّد تسميات الفيديو</h4><p class="small" style="margin:0">معالجة مقاطع الفيديو واستخراج ملفات النص المترجم بصيغ <span class="ltr">SRT</span> و<span class="ltr">VTT</span> المتوافقة مع برامج التحرير.</p></div>
+      <div class="card"><h4 class="mini">دفتر المفردات المخصص</h4><p class="small" style="margin:0">حفظ المفردات الجديدة الناتجة عن المحادثات وإنشاء خطط مراجعة مخصصة لمتعلّمي اللغات.</p></div>
+      <div class="card"><h4 class="mini">محوّل العملات المباشر</h4><p class="small" style="margin:0">دعم أسعار الصرف الحية لأكثر من 150 عملة عالمية لتسهيل التسوّق والتعاملات المالية أثناء السفر.</p></div>
+    </div>
+
+    <h3 class="blk mt5"><span class="bar"></span>مصفوفة الأداء: النطاق والمحرّك وزمن التأخير</h3>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th style="width:25%">الميزة الوظيفية</th>
+          <th style="width:19%">النطاق اللغوي</th>
+          <th style="width:33%">المحرّك الذكي المعتمد</th>
+          <th style="width:23%">معدّل التأخير المستهدف</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">ترجمة المراسلات النصية</td><td>73 لغة نصية</td><td><span class="ltr">Neural Machine Translation (NMT)</span></td><td>أقل من 250 مللي ثانية</td></tr>
+        <tr><td class="k">توليد واستنساخ الصوت</td><td>31 لغة صوتية</td><td><span class="ltr">Zero-Shot Voice Cloning TTS</span></td><td>أقل من 1.2 ثانية</td></tr>
+        <tr><td class="k">وضع المواجهة المباشرة</td><td>تفاعلي شفهي</td><td><span class="ltr">Streaming ASR + NMT + TTS</span></td><td>أقل من 800 مللي ثانية</td></tr>
+        <tr><td class="k">التفريغ المباشر للاجتماعات</td><td>نصوص متدفقة</td><td><span class="ltr">Real-time Streaming Subtitling</span></td><td>عرض تدفقي مستمر</td></tr>
+        <tr><td class="k">ترجمة المستندات والفيديو</td><td>ملفات خارجية</td><td><span class="ltr">Document Parser / Subtitle Alignment</span></td><td>حسب حجم الملف المعالج</td></tr>
+      </tbody>
+    </table>
+
+    <div class="row mt4" style="gap:5mm">
+      <div class="col" style="flex:.52">
+        <h4 class="mini">قراءة الأرقام على مقياس واحد</h4>
+        <div class="chart">
+          <div class="crow"><div class="clab">ترجمة النص</div><div class="ctrack"><div class="cfill" style="width:21%"></div></div><div class="cval">250 ms</div></div>
+          <div class="crow"><div class="clab">المواجهة المباشرة</div><div class="ctrack"><div class="cfill" style="width:66%"></div></div><div class="cval">800 ms</div></div>
+          <div class="crow"><div class="clab">الصوت المستنسخ</div><div class="ctrack"><div class="cfill v" style="width:100%"></div></div><div class="cval">1200 ms</div></div>
+        </div>
+        <p class="small mt2" style="margin-bottom:0">مقياس نسبي: كل الأشرطة محسوبة على أساس 1200 مللي ثانية = 100%. الأرقام كما وردت في التقرير المصدر.</p>
+      </div>
+      <div class="col" style="flex:.48">
+        <div class="tint">
+          <h4 class="mini">أي رقم يهم المستخدم فعلاً؟</h4>
+          <p class="small" style="margin:0">في المحادثة المكتوبة يتحمّل المستخدم ربع ثانية. أما في الحوار الصوتي فالحدّ الحاسم قريب من ثانية واحدة: ما بعدها يبدأ الإحساس بأن الطرف الآخر «يتردّد». ولذلك يُعدّ زمن TTS هو القيد الحقيقي على تجربة المكالمات والدبلجة.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>صفحة {{P}} من {{TOTAL}}</span><span>تقرير تحليلي وهندسي · Intent 0.6.0.1</span><span class="num">07</span></div>
+</section>
+
+<!-- ================= SECTION 3 (a) ================= -->
+<section class="page" id="s3" data-anchor="s3">
+  <div class="ph"><div class="r"><span class="dot"></span>INTENT 0.6.0.1</div><div>03 · واجهة المستخدم وتجربة الاستخدام</div></div>
+  <div class="pg-body">
+    <div class="eyebrow">Section 03 — Interface &amp; experience</div>
+    <h2 class="sec"><span class="n">03</span> واجهة مألوفة، تقنية مخفيّة</h2>
+    <div class="sub">يعتمد التوجيه الهندسي للإصدار 0.6.0.1 على تبسيط التفاعل التكنولوجي وإخفاء تعقيدات محركات الذكاء الاصطناعي خلف واجهة مستخدم مألوفة تماثل تطبيقات الاتصال الشائعة مثل WhatsApp وTelegram، لتقليل المنحنى التعليمي للمستخدم.</div>
+
+    <h3 class="blk"><span class="bar"></span>هيكلية واجهة المحادثة الرئيسية</h3>
+    <div class="row mt2">
+      <div class="col" style="flex:.63">
+        <ul class="list">
+          <li><b>قائمة المحادثات:</b> تعرض أحدث الاتصالات مع مؤشرات مرئية تبيّن اللغات المستخدمة في كل شات، وعدّاد الرسائل غير المقروءة.</li>
+          <li><b>فقاعات المحادثة الثنائية:</b> تظهر الفقرة النصية الأصلية للرسالة بلون باهت، ويثبت أسفلها النص المترجم بخط واضح وأكبر حجماً، مع إرفاق شارة مرئية مصغّرة تعكس نجاح الترجمة.</li>
+          <li><b>قائمة التفاعل المطوّل:</b> تُمكّن المستخدم من أداء إجراءات متقدمة مثل استدعاء النص الأصلي كلياً، أو إجبار النظام على إعادة توليد الصوت المكلون، أو إجراء تعديل يدوي لبعض الكلمات.</li>
+        </ul>
+        <div class="callout info mt2">
+          <div class="ic">i</div>
+          <p>المبدأ الحاكم: <b>الأصل حاضر دائماً</b>. لم تُخفَ الرسالة الأصلية بل خُفِّض تباينها فقط — وهذا فرق جوهري بين «التبسيط» و«الإخفاء» في واجهات الترجمة.</p>
+        </div>
+      </div>
+      <div class="col" style="flex:.37">
+        <figure>
+          <div class="fig-frame" style="padding:3mm">
+            <img src="img/ui1.png" style="width:44mm;border-radius:4.4mm" alt="قائمة المحادثات">
+          </div>
+          <figcaption><span class="lbl">شكل 6</span> قائمة المحادثات: بطاقة اللغة، وسم الترجمة، ومعاينة النصين معاً.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <h3 class="blk mt4"><span class="bar"></span>نظام العرض الثنائي: كيف يُبنى التسلسل البصري؟</h3>
+    <div class="grid3 mt2">
+      <div class="soft">
+        <div class="small" style="font-weight:800;color:var(--blue)">الطبقة الأولى</div>
+        <h4 class="mini" style="margin-top:1mm">النص الأصلي</h4>
+        <p class="small" style="margin:0">لون باهت وحجم أصغر، دوره مرجعي لا قرائي: يُثبت ما قيل فعلاً دون أن يزاحم الترجمة.</p>
+      </div>
+      <div class="soft">
+        <div class="small" style="font-weight:800;color:var(--blue)">الطبقة الثانية</div>
+        <h4 class="mini" style="margin-top:1mm">النص المترجم</h4>
+        <p class="small" style="margin:0">خط أوضح وأكبر، يفصله خط منقّط عن الأصل، ويُقرأ أولاً في المسح البصري السريع.</p>
+      </div>
+      <div class="soft">
+        <div class="small" style="font-weight:800;color:var(--blue)">الطبقة الثالثة</div>
+        <h4 class="mini" style="margin-top:1mm">الإشارات الوظيفية</h4>
+        <p class="small" style="margin:0">وسم الترجمة، وزمن الاستجابة، وحالة القراءة، ومؤشر الصوت المستنسخ عند وجوده.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>صفحة {{P}} من {{TOTAL}}</span><span>تقرير تحليلي وهندسي · Intent 0.6.0.1</span><span class="num">08</span></div>
+</section>
+
+<!-- ================= SECTION 3 (b) ================= -->
+<section class="page" id="s3b" data-anchor="s3b">
+  <div class="ph"><div class="r"><span class="dot"></span>INTENT 0.6.0.1</div><div>03 · المواجهة · الاستنساخ · الاشتراكات</div></div>
+  <div class="pg-body">
+    <h3 class="blk"><span class="bar"></span>واجهة وضع المواجهة المباشرة</h3>
+    <div class="row mt2">
+      <div class="col" style="flex:.5">
+        <p>تُعدّ هذه الواجهة نموذجاً فريداً لتصميم التفاعل المباشر بين طرفين: تصميم متناظر تُعرض فيه بيانات الجزء العلوي
+        مقلوبة رأسياً بزاوية 180 درجة، وأزرار التقاط صوت متوازية يضيء كلٌّ منها عند الحديث، ومؤشر بث صوتي مرئي يتفاعل مع
+        درجة الصوت للتأكيد على جودة الالتقاط.</p>
+        <div class="soft">
+          <h4 class="mini">قاعدة الاستخدام</h4>
+          <p class="small" style="margin:0">لا يحتاج أي من الطرفين إلى تدوير الهاتف أو تمريره: الجهاز موضوع بينهما، وكل نصف موجّه لصاحبه. هذا هو جوهر الفكرة — «مترجم على الطاولة» لا «تطبيق في اليد».</p>
+        </div>
+      </div>
+      <div class="col" style="flex:.5">
+        <figure>
+          <div class="fig-frame dk" style="padding:3mm;height:78mm">
+            <img src="img/ui3.png" style="height:72mm;border-radius:4.4mm" alt="وضع المواجهة المباشرة">
+          </div>
+          <figcaption><span class="lbl">شكل 7</span> واجهة المواجهة المباشرة كاملة: نصان، وزرّا ميكروفون، ومؤشر موجي مزدوج.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="row mt4" style="gap:5mm">
+      <div class="col" style="flex:.5">
+        <h3 class="blk"><span class="bar"></span>إعداد استنساخ الصوت</h3>
+        <p class="small">صُممت التجربة لتتم عبر مراحل إرشادية متسلسلة تضمن التقاط بصمة صوتية عالية الجودة:</p>
+        <ol class="steps" style="margin-bottom:0">
+          <li><b>قراءة النموذج:</b> يُعرض نص قصير باللغة الأم مع عدّاد زمني لمدة 10 ثوانٍ لضبط سرعة الحديث والتلوين الصوتي.</li>
+          <li><b>تحليل الضجيج:</b> تغذية راجعة حيّة حول مستوى الضجيج المحيط وتوجيه المستخدم لمكان أكثر هدوءاً عند الحاجة.</li>
+          <li><b>معاينة البصمة:</b> الاستماع لعيّنات بالإسبانية أو الإنجليزية نُطقت بالبصمة المكلونة للتأكد من مطابقة النبرة قبل الحفظ.</li>
+        </ol>
+        <div style="margin-top:3mm">
+          <img src="img/ui5.png" style="width:38mm;border-radius:4mm;border:.5pt solid var(--line)" alt="استنساخ الصوت">
+        </div>
+      </div>
+      <div class="col" style="flex:.5">
+        <h3 class="blk"><span class="bar"></span>إدارة الاشتراكات وتنبيهات الاستخدام</h3>
+        <p class="small">يضمن الإصدار معالجة واضحة لرسائل التنبيه والاشتراكات عبر ثلاثة عناصر:</p>
+        <ul class="list tight">
+          <li><b>مؤشر الاستهلاك المجاني:</b> يوضح عدد الكلمات والرسائل المتبقية من الحصة اليومية.</li>
+          <li><b>نافذة الشراء المنبثقة (Intent Turbo):</b> تعرض خطط الاشتراك بأسلوب شفاف لإزالة الإعلانات وفتح حد لا نهائي لاستنساخ الصوت والترجمة الصوتية المباشرة.</li>
+          <li><b>تنبيه أخطاء الخوادم:</b> رسائل خطأ واضحة وموجّهة عند مواجهة مشكلات شبكية (مثل خطأ <span class="ltr">HTTP 500</span> أثناء التحقق) لضمان معرفة المستخدم بالخطوات التصحيحية.</li>
+        </ul>
+        <div style="margin-top:2mm">
+          <img src="img/ui6.png" style="width:38mm;border-radius:4mm;border:.5pt solid var(--line)" alt="نافذة الاشتراك">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>صفحة {{P}} من {{TOTAL}}</span><span>تقرير تحليلي وهندسي · Intent 0.6.0.1</span><span class="num">09</span></div>
+</section>
+
+<!-- ================= SECTION 4 (a) : diagram ================= -->
+<section class="page" id="s4" data-anchor="s4">
+  <div class="ph"><div class="r"><span class="dot"></span>INTENT 0.6.0.1</div><div>04 · معمارية الاستنساخ</div></div>
+  <div class="pg-body">
+    <div class="eyebrow">Section 04 — Architecture</div>
+    <h2 class="sec"><span class="n">04</span> المعمارية التقنية للاستنساخ</h2>
+    <div class="sub">لبناء نسخة مطابقة وظيفياً باستخدام أحدث تقنيات الذكاء الاصطناعي، يُعتمد على معمارية خدمات مصغّرة موجهة بالحدث، تعالج التدفقات الصوتية والنصية في الزمن الفعلي وبأدنى معدل تأخير ممكن.</div>
+
+    <p>تعتمد البنية على تقسيم النظام إلى <b>خمس طبقات</b> متصلة عبر بروتوكولات اتصال سريعة. تستقبل الطبقة الأولى
+    (تطبيق الهاتف) مدخلات المستخدم الصوتية أو النصية عبر إطار عمل متكامل، وتمرّرها فوراً عبر اتصالات
+    <span class="ltr">WebSocket</span> للبيانات النصية أو عبر بروتوكول <span class="ltr">WebRTC</span> للتدفقات الصوتية الحية.
+    تتولّى بوابة الاتصال (<span class="ltr">API Gateway</span>) توجيه الطلب إلى خدمة التفريغ الصوتي الفوري (ASR) لتحويل
+    الصوت إلى نص، ثم يُمرّر النص الناتج إلى خادم الترجمة الآلية العصبية (NMT). عقب الحصول على النص المترجم، يُرسل
+    الناتج إلى محرك استنساخ الصوت الفوري (<span class="ltr">Zero-Shot TTS</span>) الذي يستخدم المتجه الصوتي الخاص
+    بالمستخدم لتوليد الصوت المترجم بالنبرة المطلوبة، ليُبثّ الملف الصوتي المخرج والنص المتزامن فوراً إلى التطبيق عبر
+    بروتوكول البث المباشر.</p>
+
+    <figure class="mt3">
+      <img src="img/diagram.png" style="width:100%;border-radius:4mm;border:.5pt solid var(--line)" alt="مخطط المعمارية">
+      <figcaption><span class="lbl">شكل 8</span> خط أنابيب الصوت في الزمن الفعلي: خمس مراحل متتابعة ومسار عودة واحد، مع طبقة البنية التحتية الداعمة.</figcaption>
+    </figure>
+
+    <div class="grid3 mt4">
+      <div class="card" style="padding:3.4mm 4mm">
+        <div class="small" style="font-weight:800;color:var(--blue);letter-spacing:.6px">PROTOCOL</div>
+        <h4 class="mini" style="margin-top:.8mm">WebSocket للنص</h4>
+        <p class="small" style="margin:0">قناة ثنائية الاتجاه تحافظ على الجلسة مفتوحة، فتُلغى كلفة إعادة المصافحة في كل رسالة.</p>
+      </div>
+      <div class="card" style="padding:3.4mm 4mm">
+        <div class="small" style="font-weight:800;color:var(--blue);letter-spacing:.6px">PROTOCOL</div>
+        <h4 class="mini" style="margin-top:.8mm">WebRTC للصوت</h4>
+        <p class="small" style="margin:0">نقل حزم صوتية بزمن تأخير منخفض مع مقاومة فقدان الحزم، وهو الأساس في المكالمات والدبلجة.</p>
+      </div>
+      <div class="card" style="padding:3.4mm 4mm">
+        <div class="small" style="font-weight:800;color:var(--blue);letter-spacing:.6px">PROTOCOL</div>
+        <h4 class="mini" style="margin-top:.8mm">Streaming كأسلوب</h4>
+        <p class="small" style="margin:0">كل مرحلة تعمل على مقاطع جزئية بدل انتظار الجملة كاملة — وهذا ما يجعل «الفورية» ممكنة.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>صفحة {{P}} من {{TOTAL}}</span><span>تقرير تحليلي وهندسي · Intent 0.6.0.1</span><span class="num">10</span></div>
+</section>
+
+<!-- ================= SECTION 4 (b) : components ================= -->
+<section class="page" id="s4b" data-anchor="s4b">
+  <div class="ph"><div class="r"><span class="dot"></span>INTENT 0.6.0.1</div><div>04 · المكوّنات والخيارات التقنية</div></div>
+  <div class="pg-body">
+    <h3 class="blk"><span class="bar"></span>المكوّنات التقنية المطلوبة لبناء النظام</h3>
+    <div class="grid2 mt2">
+      <div class="card">
+        <div class="chip b" style="margin-bottom:1.6mm">01 · الواجهة الأمامية</div>
+        <h4 class="mini">إطار التطبيق</h4>
+        <p class="small" style="margin:0">يُوصى باستخدام <b>Flutter</b> لإنشاء تطبيقات متوافقة على أندرويد وiOS بكود موحّد. يُدمج معه <span class="ltr">flutter_sound</span> لالتقاط صوتي عالي الدقة بصيغة <span class="ltr">PCM</span>، و<span class="ltr">flutter_webrtc</span> لنقل المكالمات والتدفقات الحية عبر <span class="ltr">RTP/RTCP</span>.</p>
+      </div>
+      <div class="card">
+        <div class="chip b" style="margin-bottom:1.6mm">02 · تحويل الكلام إلى نص</div>
+        <h4 class="mini">محرّك ASR</h4>
+        <p class="small" style="margin:0"><b>سحابياً:</b> <span class="ltr">Deepgram Nova-2</span> بزمن تأخير لا يتعدّى 300 مللي ثانية ودعم متميّز للغات مع تفريغ تدفقي حقيقي. <b>ذاتياً:</b> <span class="ltr">Faster-Whisper</span> على خوادم بمسرّعات <span class="ltr">Nvidia A10G</span> مع <span class="ltr">vLLM</span> لرفع المعالجة المتوازية.</p>
+      </div>
+      <div class="card">
+        <div class="chip b" style="margin-bottom:1.6mm">03 · الترجمة الآلية</div>
+        <h4 class="mini">محرّك NMT</h4>
+        <p class="small" style="margin:0"><b>سحابياً:</b> <span class="ltr">DeepL API v2</span> لأفضل دقة لغوية مع حفظ السياق. <b>ذاتياً:</b> نماذج مفتوحة مثل <span class="ltr">Qwen2.5-Translate</span> أو <span class="ltr">Llama-3-Instruct</span> مضبوطة بـ<span class="ltr">TensorRT-LLM</span> لتقليل الاستجابة إلى أقل من 100 مللي ثانية للجملة.</p>
+      </div>
+      <div class="card">
+        <div class="chip b" style="margin-bottom:1.6mm">04 · استنساخ الصوت</div>
+        <h4 class="mini">محرّك TTS</h4>
+        <p class="small" style="margin:0"><b>سحابياً:</b> <span class="ltr">ElevenLabs Instant Voice Cloning</span> لتوليد بصمة من ملف مدته 10 ثوانٍ وتطبيقها بأكثر من 30 لغة. <b>ذاتياً:</b> <span class="ltr">Coqui XTTS-v2</span> أو <span class="ltr">OpenVoice v2</span> لاستخلاص متجهات المتحدث دون إعادة تدريب لكل مستخدم.</p>
+      </div>
+    </div>
+
+    <div class="card mt3">
+      <div class="chip b" style="margin-bottom:1.6mm">05 · البنية التحتية للزمن الفعلي</div>
+      <p class="small" style="margin:0">تتطلّب المعمارية بناء خادم خلفي باستخدام <b>FastAPI (Python)</b> أو <b>Golang</b> للتعامل مع آلاف الاتصالات المتزامنة، وإدارة تدفقات الفيديو والمكالمات عبر خوادم <span class="ltr">LiveKit</span> أو <span class="ltr">Kurento Media Server</span> المتخصصة في التوجيه منخفض التأخير للبث المباشر.</p>
+    </div>
+
+    <h3 class="blk mt4"><span class="bar"></span>مصفوفة الخيارات: السحابي مقابل مفتوح المصدر</h3>
+    <table class="tbl tight">
+      <thead>
+        <tr><th style="width:26%">طبقة المعمارية</th><th style="width:28%">الخيار السحابي التنافسي</th><th style="width:28%">الخيار مفتوح المصدر</th><th style="width:18%">التعقيد التشغيلي</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">تطبيق الهاتف الأمامي</td><td><span class="ltr">Flutter / React Native</span></td><td><span class="ltr">Flutter / Native Android (Kotlin)</span></td><td>متوسط</td></tr>
+        <tr><td class="k">التفريغ الصوتي (ASR)</td><td><span class="ltr">Deepgram Nova-2 API</span></td><td><span class="ltr">Faster-Whisper + vLLM</span></td><td>متوسط إلى مرتفع</td></tr>
+        <tr><td class="k">محرّك الترجمة (NMT)</td><td><span class="ltr">DeepL API v2</span></td><td><span class="ltr">Qwen2.5-Translate + TensorRT-LLM</span></td><td>متوسط</td></tr>
+        <tr><td class="k">استنساخ الصوت (TTS)</td><td><span class="ltr">ElevenLabs Voice Cloning API</span></td><td><span class="ltr">Coqui XTTS-v2 / OpenVoice v2</span></td><td>مرتفع جداً</td></tr>
+        <tr><td class="k">خادم الاتصال والمكالمات</td><td><span class="ltr">LiveKit Cloud</span></td><td><span class="ltr">LiveKit Server + Redis Pub/Sub</span></td><td>مرتفع</td></tr>
+        <tr><td class="k">قاعدة البيانات والتخزين</td><td><span class="ltr">Supabase / Firebase</span></td><td><span class="ltr">PostgreSQL + MinIO Object Storage</span></td><td>منخفض</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout mt3">
+      <div class="ic">!</div>
+      <p><b>قاعدة القرار:</b> السحابي يشتري الوقت والجودة بتكلفة متغيّرة لكل دقيقة صوت؛ ومفتوح المصدر يشتري الاستقلال بتكلفة هندسية ثابتة. النقطة الفاصلة عملياً هي <b>TTS</b>: أعلى تعقيد تشغيلي في الجدول، وأعلى أثر في تمييز المنتج.</p>
+    </div>
+  </div>
+  <div class="pf"><span>صفحة {{P}} من {{TOTAL}}</span><span>تقرير تحليلي وهندسي · Intent 0.6.0.1</span><span class="num">11</span></div>
+</section>
+
+<!-- ================= SECTION 5 : production standards ================= -->
+<section class="page" id="s5" data-anchor="s5">
+  <div class="ph"><div class="r"><span class="dot"></span>INTENT 0.6.0.1</div><div>05 · معايير الإخراج الفني</div></div>
+  <div class="pg-body">
+    <div class="eyebrow">Section 05 — Production standards</div>
+    <h2 class="sec"><span class="n">05</span> دليل الإخراج الفني المطبَّق</h2>
+    <div class="sub">يوصي التقرير المصدر بمنهجية لتحويل التحليل إلى مستند PDF وثائقي يطابق المعايير المهنية للتسليم إلى فرق التطوير أو الجهات الاستثمارية. هذا القسم يعرض التوصيات، ثم يوضّح كيف طُبِّقت فعلياً في المستند الذي تقرأه.</div>
+
+    <div class="grid2">
+      <div class="card">
+        <h4 class="mini">البرامج وأدوات المعالجة الموصى بها</h4>
+        <ul class="list tight" style="margin-bottom:0">
+          <li><b>Typst أو Pandoc:</b> تحويل النص بصيغة Markdown إلى إطار Typst المتقدم للحصول على طباعة متناسقة وهندسة صفحات دقيقة.</li>
+          <li><b>Markdown PDF لـ VS Code:</b> مع تخصيص أنماط CSS المدمجة للحصول على نتيجة فورية عالية الجودة.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 class="mini">قواعد التنسيق البصري</h4>
+        <ul class="list tight" style="margin-bottom:0">
+          <li><b>الخطوط:</b> خطوط عربية حديثة مثل Cairo أو Tajawal، بحجم نص 11pt والعناوين بين 14pt و18pt.</li>
+          <li><b>الألوان:</b> أزرق داكن <span class="ltr">#0F172A</span> للعناوين، وأزرق نشط <span class="ltr">#2563EB</span> للتظليل والروابط، وخلفيات رمادية فاتحة <span class="ltr">#F8FAFC</span> للجداول.</li>
+          <li><b>الجداول والصور:</b> حدود ناعمة وتظليل صفوف تناوبي، وحواف صور بانحناء 8px مع ظلال خفيفة.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="blk mt4"><span class="bar"></span>لوحة الألوان المعتمدة</h3>
+    <div class="pal">
+      <div class="sw2"><div class="box" style="background:#0F172A"></div><div class="meta"><b>Navy Ink</b><span>#0F172A</span></div></div>
+      <div class="sw2"><div class="box" style="background:#2563EB"></div><div class="meta"><b>Action Blue</b><span>#2563EB</span></div></div>
+      <div class="sw2"><div class="box" style="background:#4F46E5"></div><div class="meta"><b>Indigo</b><span>#4F46E5</span></div></div>
+      <div class="sw2"><div class="box" style="background:#7C3AED"></div><div class="meta"><b>Violet</b><span>#7C3AED</span></div></div>
+      <div class="sw2"><div class="box" style="background:#F8FAFC;border-bottom:.5pt solid var(--line)"></div><div class="meta"><b>Soft Gray</b><span>#F8FAFC</span></div></div>
+    </div>
+
+    <h3 class="blk mt4"><span class="bar"></span>مطابقة التوصية بالتطبيق</h3>
+    <table class="tbl tight">
+      <thead><tr><th style="width:30%">المعيار الموصى به</th><th style="width:34%">التوصية في المصدر</th><th>التطبيق في هذا المستند</th></tr></thead>
+      <tbody>
+        <tr><td class="k">حجم الصفحة</td><td>A4 قياسي</td><td>210 × 297 مم لكل صفحة، بلا هوامش طابعة إضافية.</td></tr>
+        <tr><td class="k">الهوامش</td><td>20 مم أفقياً ورأسياً</td><td>20 مم يميناً ويساراً، و17 مم أعلى و16 مم أسفل مع منطقة ترويسة وتذييل.</td></tr>
+        <tr><td class="k">الخط</td><td>Cairo / Tajawal</td><td>Cairo (متغيّر الوزن) مضمّن داخل الملف، بنص 10.4pt وعناوين 12.4–19pt.</td></tr>
+        <tr><td class="k">الترويسة والتذييل</td><td>اسم التقرير + رقم الصفحة</td><td>ترويسة باسم التقرير والقسم، وتذييل «صفحة X من Y» مع التاريخ.</td></tr>
+        <tr><td class="k">الجداول</td><td>حدود ناعمة وتظليل تناوبي</td><td>جداول بحدود نصف نقطة، رأس داكن، وتظليل صفوف متبادل.</td></tr>
+        <tr><td class="k">الصور</td><td>حواف بانحناء 8px وظلال خفيفة</td><td>إطارات مستديرة 4 مم وظلال ناعمة حول كل واجهة.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout info mt3">
+      <div class="ic">i</div>
+      <p>ما لم يُنفَّذ حرفياً: التوصية بخط Tajawal وبتوليد الملف عبر Typst أو Pandoc. استُخدم Cairo لأنها الخط الأساسي الموصى به، وبُني المستند بـ<span class="ltr">HTML/CSS</span> ثم صُدّر إلى PDF بمحرك Chromium لضمان تشكيل عربي صحيح وتضمين الخطوط.</p>
+    </div>
+  </div>
+  <div class="pf"><span>صفحة {{P}} من {{TOTAL}}</span><span>تقرير تحليلي وهندسي · Intent 0.6.0.1</span><span class="num">12</span></div>
+</section>
+
+<!-- ================= SECTION 6 : conclusion ================= -->
+<section class="page" id="s6" data-anchor="s6">
+  <div class="ph"><div class="r"><span class="dot"></span>INTENT 0.6.0.1</div><div>06 · الخلاصة والمعجم</div></div>
+  <div class="pg-body">
+    <div class="eyebrow">Conclusion</div>
+    <h2 class="sec"><span class="n">06</span> الخلاصة</h2>
+    <div class="sub">ما الذي يجب أن يخرج به القارئ من هذا التقرير في خمس نقاط قابلة للتنفيذ؟</div>
+
+    <div class="grid2">
+      <div class="card" style="border-right:1.4mm solid #2563EB">
+        <div class="small" style="font-weight:800;color:var(--blue)">01 · المنتج</div>
+        <h4 class="mini" style="margin:.8mm 0 1mm">الفارق في الصوت لا في الكلمات</h4>
+        <p class="small" style="margin:0">الترجمة النصية سوق مزدحم؛ ما يميّز Intent هو الدبلجة ببصمة صوت المستخدم عبر 31 لغة — وهي الميزة الأصعب في الاستنساخ.</p>
+      </div>
+      <div class="card" style="border-right:1.4mm solid #4F46E5">
+        <div class="small" style="font-weight:800;color:var(--blue)">02 · التجربة</div>
+        <h4 class="mini" style="margin:.8mm 0 1mm">واجهة مألوفة تُخفي التعقيد</h4>
+        <p class="small" style="margin:0">الاقتراب من أنماط WhatsApp وTelegram قرار مقصود: يُلغي تعلّم أداة جديدة ويترك المستخدم داخل حواره.</p>
+      </div>
+      <div class="card" style="border-right:1.4mm solid #7C3AED">
+        <div class="small" style="font-weight:800;color:var(--blue)">03 · الهندسة</div>
+        <h4 class="mini" style="margin:.8mm 0 1mm">خمس طبقات، تأخير واحد</h4>
+        <p class="small" style="margin:0">نجاح النظام يُقاس بميزانية التأخير الكلية لا بسرعة أي مكوّن منفرد؛ والمعالجة التدفقية هي الطريق الوحيد لثباتها.</p>
+      </div>
+      <div class="card" style="border-right:1.4mm solid #0F172A">
+        <div class="small" style="font-weight:800;color:var(--blue)">04 · البناء</div>
+        <h4 class="mini" style="margin:.8mm 0 1mm">ابدأ سحابياً، خطّط للاستقلال</h4>
+        <p class="small" style="margin:0">إطلاق أولي على APIs جاهزة، مع تصميم الطبقات بحيث يمكن استبدال أي مزوّد بنموذج مستضاف ذاتياً دون تغيير الواجهة.</p>
+      </div>
+    </div>
+
+    <div class="dark mt3">
+      <div class="row center">
+        <div class="col">
+          <h4 style="font-size:11pt;margin-bottom:1.4mm">05 · القرار</h4>
+          <p style="margin:0;font-size:9pt;line-height:1.85;color:#C9D6E8">بناء نسخة مطابقة وظيفياً ليس مشروع واجهة أمامية بل مشروع بنية تحتية صوتية: الأولوية للـASR التدفقي، ثم ميزانية TTS، ثم الهوية الصوتية. ومن دون إدارة صريحة للتأخير والتكلفة، ستُنتج النسخة «ترجمة تعمل» لا «محادثة تنساب».</p>
+        </div>
+        <div style="width:22mm;text-align:center;flex:none">
+          <div style="font-size:22pt;font-weight:900;color:#93C5FD;line-height:1">5</div>
+          <div style="font-size:6.8pt;font-weight:800;letter-spacing:1px;color:#7E93B4">LAYERS</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="blk mt4"><span class="bar"></span>معجم المصطلحات الواردة</h3>
+    <table class="tbl tight">
+      <thead><tr><th style="width:22%">المصطلح</th><th style="width:30%">الاسم الكامل</th><th>الدور في النظام</th></tr></thead>
+      <tbody>
+        <tr><td class="k">ASR</td><td><span class="ltr">Automatic Speech Recognition</span></td><td>تحويل الكلام المنطوق إلى نص قابل للترجمة.</td></tr>
+        <tr><td class="k">NMT</td><td><span class="ltr">Neural Machine Translation</span></td><td>ترجمة النص بين اللغات بالاعتماد على الشبكات العصبية.</td></tr>
+        <tr><td class="k">TTS</td><td><span class="ltr">Text to Speech</span></td><td>نطق النص المترجم بصوت مسموع.</td></tr>
+        <tr><td class="k">Zero-Shot</td><td><span class="ltr">Zero-Shot Voice Cloning</span></td><td>استنساخ الصوت من عيّنة قصيرة دون تدريب مسبق للمتحدث.</td></tr>
+        <tr><td class="k">WebRTC</td><td><span class="ltr">Web Real-Time Communication</span></td><td>نقل الصوت والفيديو الحيّ بزمن تأخير منخفض.</td></tr>
+        <tr><td class="k">VAD / AEC</td><td><span class="ltr">Voice Activity Detection / Echo Cancellation</span></td><td>كشف الكلام وقمع الصدى لمنع تداخل الأصوات في المواجهة المباشرة.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="hr"></div>
+    <div class="row" style="gap:5mm">
+      <div class="col">
+        <div class="small" style="font-weight:800;color:var(--navy);margin-bottom:1mm">بيانات المستند</div>
+        <p class="small" style="margin:0">المصدر: التقرير التحليلي والهندسي لتطبيق Intent — الإصدار 0.6.0.1.<br>
+        الإخراج: A4 · خط Cairo · صور واجهات بإعادة بناء مرئية · 14 صفحة.<br>
+        تاريخ الإصدار: 24 أكتوبر 2026 · إصدار المستند 1.0.</p>
+      </div>
+      <div class="col" style="flex:.72">
+        <div class="small" style="font-weight:800;color:var(--navy);margin-bottom:1mm">حدود الاستخدام</div>
+        <p class="small" style="margin:0">هذا المستند تحليل هندسي لأغراض التخطيط والتقييم، ولا يمثّل المستند الرسمي لشركة Intent Inc. ولا يتضمن أي كود مصدري أو بيانات مستخدمين.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>صفحة {{P}} من {{TOTAL}}</span><span>تقرير تحليلي وهندسي · Intent 0.6.0.1</span><span class="num">13</span></div>
+</section>
+
+</body>
+</html>
